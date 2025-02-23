@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עץ משפחת מכלוף</title>
+    <style>
+       body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            direction: rtl;
+            background-image: url("https://www.reshet-yeruka.net/wp-content/uploads/2023/01/%D7%A2%D7%A5-%D7%91%D7%A9%D7%93%D7%94-Image-by-wirestock-on-Freepik.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 48px;
+            text-shadow: 3px 3px 6px black;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0px 4px 12px rgba(255, 215, 0, 0.7);
+        }
+
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .generation {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 10px 0;
+            position: relative;
+        }
+        .person {
+            cursor: pointer;
+            padding: 15px;
+            background: rgba(34, 152, 44, 0.9);
+            border: 3px solid rgb(11, 168, 6);
+            border-radius: 50%;
+            box-shadow: 0px 6px 18px rgba(82, 156, 9, 0.9);
+            width:150px; 
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            background-image: url("https://s3.prog.co.il/data/attachments/1152/1152125-9841ede07e7e2300e7d4558f77755838.jpg");
+            background-size: cover;
+            background-position: center;
+            color: black;
+        }
+
+       
+
+        .person::before,
+        .person::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: rgb(13, 106, 32);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .person::before {
+            height: 50%;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .person::after {
+            height: 50%;
+            bottom: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .person img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid rgb(36, 150, 44);
+            margin-bottom: 5px;
+        }
+
+        .person:hover {
+            background: rgb(43, 165, 43);
+            transform: scale(1.15);
+            color: black;
+            box-shadow: 0px 8px 20px rgb(173, 220, 166);
+        }
+
+        .popup {
+            position: fixed;
+            bottom: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 450px;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(255, 215, 0, 0.7);
+            transition: bottom 0.4s ease-in-out;
+        }
+
+        .popup.active {
+            bottom: 30px;
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .popup .close-btn:hover {
+            background: darkred;
+        }
+        .but {
+    width: 140px;
+    height: 70px;
+    background-color: #333; /* צבע רקע כהה */
+    color: #ffc107; /* צבע טקסט */
+    border: none;
+    border-radius: 10px; /* קצוות מעוגלים */
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute; /* מיקום יחסי למסך */
+    top: 1%;
+    right:2%; /* תוקן מ-90% ל-10% כדי שלא ייצא מחוץ למסך */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s; /* אנימציה חלקה */
+}
+
+/* אפקט בלחיצה */
+.but:hover {
+    background-color: #555;
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+  <h1>עץ משפחת מכלוף</h1>
+    <div class="tree">
+        <div class="generation">
+            <div class="person" onclick="showPopup('משה', 'הוא אוהב לקרוא ספרי עיון ולעזור לאחרים.')">
+                משה
+            </div>
+            <div class="person" onclick="showPopup('שושנה', 'היא אוהבת לבשל ולהתנדב בקהילה.')">
+                שושנה
+            </div>
+        </div>
+
+        <div class="generation">
+            <div class="person" onclick="showPopup('הדר', 'היא אוהבת לתכנן מסעות ולטייל.')">
+                הדר
+            </div>
+            <div class="person" onclick="showPopup('רחלי', 'היא אוהבת לקרוא ספרים ולצפות בסרטים.')">
+                רחלי
+            </div>
+        </div>
+
+        <div class="generation">
+            <div id="roi" class="person" onclick="showPopup('רועי', 'הוא אוהב לנגן בגיטרה ולשחק כדורגל.')">
+                רועי
+            </div>
+            
+            <div class="person" onclick="showPopup('גיא', 'הוא אוהב לצפות בסרטי מדע בדיוני ולפצח חידות.')">
+                גיא
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <button class="close-btn" onclick="closePopup()">X</button>
+        <h2 id="popup-name">שם</h2>
+        <p id="popup-info">מידע...</p>
+        
+    </div>
+
+    <script>
+         function showPopup(name, info) {
+    // עדכון הפופ-אפ עם המידע הנכון
+    document.getElementById("popup-name").innerText = name;
+    document.getElementById("popup-info").innerText = info;
+    document.getElementById("popup").classList.add("active");
+
+    // אם קיים כפתור קודם - להסיר אותו
+    let oldButton = document.getElementById("more-info-btn");
+    if (oldButton) oldButton.remove();
+
+    // יצירת כפתור חדש
+    const button = document.createElement("button");
+    button.innerHTML = `תרצה לדעת על המשפחה של ${name}? לחץ כאן`;
+    button.id = "more-info-btn";
+       
+    // פונקציה לטיפול בלחיצה על הכפתור
+    
+    button.onclick = function() {
+        if (name === "גיא") {
+            window.location.href = "work.html";
+        } else if (name === "הדר") {
+            window.location.href = "nagar.html";
+        } else if (name === "רחלי") {
+            window.location.href = "hahoal.html";
+        } else if (name === "שושנה") {
+            window.location.href = "shoshana.html";
+        } else if (name === "משה") {
+            window.location.href = "mose.html";
+            
+        } else if(name === "רועי"){
+            let roi = document.getElementById("roi")
+    roi.classList.remove(" button ")
+            alert("זאת המשפחה שלו");
+           document.body.style.display="none"
+        }
+    };
+
+    // הוספת הכפתור לפופ-אפ
+    document.getElementById("popup").appendChild(button);
+}
+
+// פונקציה לסגירת הפופ-אפ
+function closePopup() {
+    document.getElementById("popup").classList.remove("active");
+}
+let but = document.createElement("button");  // יצירת כפתור חדש
+but.classList.add("but");  // הוספת מחלקה (class) לכפתור
+but.id = "but";  // הגדרת מזהה (id)
+but.textContent = "     לחזור לעמוד הקודם";  // הוספת טקסט לכפתור
+
+// הוספת הכפתור לגוף הדף (או לאלמנט אחר לפי הצורך)
+document.body.appendChild(but);  
+
+// הוספת אירוע לחיצה שיפנה לדף אחר
+but.onclick = function() {
+    window.history.back();
+};
+
+    </script>
+
+</body>
+</html>
+  

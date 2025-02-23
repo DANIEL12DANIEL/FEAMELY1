@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תעודת זהות משפחתית - סבא משה</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .id-card {
+            background: #ffffff;
+            width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: right;
+        }
+        .id-card h1 {
+            text-align: center;
+            color: #333;
+        }
+        .photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: gray;
+            margin: 10px auto;
+        }
+        .question {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answer {
+            display: block;
+            background: #e9ecef;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        .but {
+    width: 140px;
+    height: 70px;
+    background-color: #333; /* צבע רקע כהה */
+    color: #ffc107; /* צבע טקסט */
+    border: none;
+    border-radius: 10px; /* קצוות מעוגלים */
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute; /* מיקום יחסי למסך */
+    top: 1%;
+    right:2%; /* תוקן מ-90% ל-10% כדי שלא ייצא מחוץ למסך */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s; /* אנימציה חלקה */
+}
+
+/* אפקט בלחיצה */
+.but:hover {
+    background-color: #555;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <div class="id-card">
+        <h1>תעודת זהות סבא משה מכלוף</h1>
+        <img src="מ.jpg" class="photo" />
+        <p><strong>שם:</strong>  מכלוף משה</p>
+        <p><strong>שמות ההורים:</strong>  ז"ל גבריאל ז"ל  ורחל</p>
+        <h2>שאלות ותשובות</h2> 
+        <div class="question" onclick="toggleAnswer(1)">1. מהו מקור שם המשפחה שלנו?</div>
+        <div class="answer" id="answer1">שם המשפחה שלנו מגיע מהשורשים הספרדיים, שם שימש כסמל למסורת ומורשת.</div>
+        
+        <div class="question" onclick="toggleAnswer(2)">2. כיצד נראתה ילדותך?</div>
+        <div class="answer" id="answer2">הילדות שלי הייתה מלאה במשחקים ברחובות, חברים והרבה צחוק.</div>
+        
+        <div class="question" onclick="toggleAnswer(3)">3. כיצד חגגתם חגים במשפחה?</div>
+        <div class="answer" id="answer3">בחגים היינו מתאספים כל המשפחה, מבשלים יחד ושרים שירים מסורתיים.</div>
+        
+        <div class="question" onclick="toggleAnswer(4)">4. איך הכרת את סבתא?</div>
+        <div class="answer" id="answer4">פגשתי את סבתא במסיבת חברים משותפים, ומיד ידעתי שהיא האחת.</div>
+        
+        <div class="question" onclick="toggleAnswer(5)">5. מה היה המקצוע הראשון שלך?</div>
+        <div class="answer" id="answer5">עבדתי כנער שליח במכולת השכונתית ולמדתי את חשיבות העבודה הקשה.</div>
+        
+        <div class="question" onclick="toggleAnswer(6)">6. מהם השינויים הכי גדולים שראית בעולם?</div>
+        <div class="answer" id="answer6">ראיתי את המעבר מטלפונים חוגה לסמארטפונים, ואת ההתקדמות הטכנולוגית העצומה.</div>
+        
+        <div class="question" onclick="toggleAnswer(7)">7. מהם המאכלים האהובים עליך מהילדות?</div>
+        <div class="answer" id="answer7">אני אוהב במיוחד את הקוסקוס של סבתא ואת תבשילי החמין של שבת.</div>
+        
+        <div class="question" onclick="toggleAnswer(8)">8. מהי החוויה הכי מרגשת שעברת?</div>
+        <div class="answer" id="answer8">החוויה המרגשת ביותר שלי הייתה הולדת ילדיי, רגעים של שמחה אינסופית.</div>
+        
+        <div class="question" onclick="toggleAnswer(9)">9. מהם הערכים שהכי חשובים לך?</div>
+        <div class="answer" id="answer9">כבוד, משפחתיות ואהבת הזולת הם הערכים שהנחו אותי לאורך חיי.</div>
+        
+        <div class="question" onclick="toggleAnswer(10)">10. איזו עצה היית נותן לדורות הבאים?</div>
+        <div class="answer" id="answer10">אל תפסיקו לחלום, תעבדו קשה, תכבדו את המשפחה ותהיו נאמנים לעצמכם.</div>
+    </div>
+
+    <script>
+        let but = document.createElement("button");  // יצירת כפתור חדש
+but.classList.add("but");  // הוספת מחלקה (class) לכפתור
+but.id = "but";  // הגדרת מזהה (id)
+but.textContent = "     לחזור לעמוד הקודם";  // הוספת טקסט לכפתור
+
+// הוספת הכפתור לגוף הדף (או לאלמנט אחר לפי הצורך)
+document.body.appendChild(but);  
+  function toggleAnswer(id) {
+            let answer = document.getElementById("answer" + id);
+            if (answer.style.display === "none") {
+                answer.style.display = "block";
+            } else {
+                answer.style.display = "none";
+            }
+        }
+        but.onclick = function() {
+    window.location.href = "jj.html";
+};
+    </script>
+</body>
+</html>
